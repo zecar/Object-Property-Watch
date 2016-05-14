@@ -6,7 +6,8 @@ It monitors javascript objects and fires a callback once some property changes. 
 
 ## General syntax
 ```javascript
-someObject.watch(callback, propsToWatch);
+someObject.watch(callback, propsToWatch); // start watching
+someObject.unwatch(propsToUnwatch); // stop watching 
 ```
 ### Callback
 ```javacript
@@ -27,6 +28,10 @@ You can pass nothing, in which case it will monitor all properties of the object
 ```javascript
 	someObject.watch(callback);
 ```
+
+### Props to unwatch
+Same as above
+
 ## Usage
 ```javascript
 var dog = {

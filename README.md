@@ -1,5 +1,5 @@
 # JavaScript Watch Object property changes
-I've started with Eligrey's [Gist](https://gist.github.com/eligrey/384583#file-object-watch-js-L10) and modify it a bit.
+I've started with Eligrey's [Gist](https://gist.github.com/eligrey/384583#file-object-watch-js-L10) and modified it a bit.
 
 ## What it does
 It monitors javascript objects and fires a callback once some property changes. You can use it to trigger functions when some property in some object changes

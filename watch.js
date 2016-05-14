@@ -23,7 +23,7 @@ Object.defineProperty(Object.prototype, 'watch', {
 			let set = function(val){
 				oldVal = newVal;
 				newVal = val;
-				handler.call(this, oldVal, val, prop);
+				handler.call(this, newVal, oldVal, prop);
 				return newVal;
 			}
 			delete this[prop];

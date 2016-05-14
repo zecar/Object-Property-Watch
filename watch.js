@@ -1,6 +1,6 @@
 Object.defineProperty(Object.prototype, 'watch', {
 	configurable: true,
-	enumerable: true,
+	enumerable: false,
 	writable: false,
 	value: function(handler, props){
 		let propertiesToWatch = [];
@@ -29,17 +29,17 @@ Object.defineProperty(Object.prototype, 'watch', {
 			delete this[prop];
 			Object.defineProperty(this, prop, {
 				configurable: true,
+				enumerable: true,
 				get: get,
 				set: set
 			});
-
 		}
-
 		propertiesToWatch.forEach(applyHandler);
 	}
 });
 
 Object.defineProperty(Object.prototype, "unwatch", {
+	writable: false,
 	value: function(props){
 		let propertiesToUnWatch = [];
 		if(props){
@@ -50,6 +50,7 @@ Object.defineProperty(Object.prototype, "unwatch", {
 				return false;
 			}
 		}
+		propertiesToUnWatch = propertiesToUnWatch.length ? propertiesToUnWatch : Object.keys(this);
 		let removeWatch = (prop) => {
 			let val = this[prop];
 			Object.defineProperty(this, prop, {
